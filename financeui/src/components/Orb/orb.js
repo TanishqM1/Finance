@@ -50,7 +50,7 @@ function Orb() {
     margin-top: -45vh;
     margin-left: -45vh;
     background: linear-gradient(90deg, rgba(73, 72, 72, 0.8) 0%, black 100%);
-    filter: blur(80px);
+    filter: blur(40px);
     animation: ${moveOrb} 10s alternate linear infinite;
   `;
 

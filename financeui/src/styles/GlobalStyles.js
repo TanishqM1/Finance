@@ -14,7 +14,6 @@ body{
     font-size: clamp(1rem, 1.5w, 1.2rem);
     overflow: hidden;
     color: rgba(34, 34, 96, .6);
-    filter: blur(4px);
     border-style: solid;
     border-color: black;
 }
