@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import avi from '../../img/avi.png'
 import { menuitems } from "../../utils/menuitems";
 import { signout } from "../../utils/icons";
 
 
-function Navigation() {
+function Navigation({active, setActive}) {
+
+    
     return(
         <NavStyle>
             
@@ -17,9 +19,16 @@ function Navigation() {
                 </h2>
             </div>
         </div>
+
         <ul className ="menu-items">
             {menuitems.map((item)=> {
-                return <li key ={item.id}>
+                return <li 
+                key ={item.id}
+                onClick={()=> setActive(item.id)}
+                className={active === item.id ? 'active': ''}
+
+                >
+                    
                     {item.icon}
                     <span>{item.title}</span>
                 </li>
@@ -107,7 +116,29 @@ const NavStyle = styled.div`
                 overflow: hidden; 
                 text-overflow: ellipsis; 
             }
+            i{
+                margin-right: 20px;
+                transition: all .4s ease-in-out;
+            }
         }
+    }
+
+    .active{
+        color: #0ddeb8;
+        i{
+            color: #0ddeb8;
+        }
+        &::before{
+            content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 4px;
+                height: 100%;
+                background: #d3d3d3;
+                border-radius: 0 10px 10px 0;
+        }
+        
     }
 
     .bottom-nav {
