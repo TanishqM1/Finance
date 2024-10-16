@@ -11,7 +11,8 @@ function Incomes() {
                 <h1>Incomes</h1>
                 
                 <div class="income-content">
-                    <div class="form-contrainer"></div>
+                    <div class="form-contrainer">
+                    </div>
                     <div class="incomes">
                         
                     </div>
