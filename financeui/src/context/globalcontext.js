@@ -1,28 +1,33 @@
-import React, { Children } from "react"
+import React, { children, useContext, useState } from "react"
 import axios from 'axios'
 
-//URL to our host
-BASE_URL = "http://localhost:5000/api/v1/";
+const BASEURL = "http://localhost:5000/api/v1/"
 
+const GlobalContext = React.createContext()
 
+export const GlobalProvider = ({children}) =>{
 
-const globalcontext = React.createContext()
-
-
-export const globalprovider = ({Children}) => {
-
-    const [incomes, setIncomes]= useState([])
+    const [incomes, setIncomes] = useState([])
     const [expenses, setExpenses] = useState([])
     const [error, setError] = useState(null)
-
-    // async allows us to use await, for HTTP requests.
-    const addIncome = async(income) => {
-
+    
+    const addIncome = async (income) =>{
+        const response = await axios.post(`${BASEURL}add-income`)
+            .catch((error) =>{
+                setError(error.response.data.message)
+            })
     }
 
+
     return (
-        <globalcontext.Provider>
+        <GlobalContext.Provider value={{
+            addIncome
+        }} >
             {children}
-        </globalcontext.Provider>
+        </GlobalContext.Provider>
     )
+}
+
+export const UseGlobalContext=() =>{
+    return useContext(GlobalContext)
 }
