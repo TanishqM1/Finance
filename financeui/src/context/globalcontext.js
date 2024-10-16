@@ -11,10 +11,10 @@ export const GlobalProvider = ({children}) =>{
     const [expenses, setExpenses] = useState([])
     const [error, setError] = useState(null)
     
-    const addIncome = async (income) =>{
-        const response = await axios.post(`${BASEURL}add-income`)
-            .catch((error) =>{
-                
+    const addIncome = async (income) => {
+        const response = await axios.post(`${BASEURL}add-income`, income)
+            .catch((err) =>{
+                setError(err.response.data.message)
             })
     }
 
