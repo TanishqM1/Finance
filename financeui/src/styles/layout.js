@@ -13,5 +13,6 @@ export const InnerLayout = styled.div`
 
 padding: 32px 24px;
 width: 100%;
+color: #0ddeb8;
 
 `;

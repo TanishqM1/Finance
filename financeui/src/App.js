@@ -13,6 +13,7 @@ function App() {
 
   const [active, setActive] = useState(1)
 
+  //"active" is set on which tab within the dashboard is clicked, and the appropriate js file will display.
   const displayData = () => {
     switch(active){
 
@@ -29,6 +30,7 @@ function App() {
     }
   }
 
+  // orbMemo stores the js code for the orb, and loads when a new dashboard tab is created. This way, the orb isn't needed to refresh every time we switch dashboard tabs.
   const orbMemo = useMemo(() => {
     return <Orb />
   },[])

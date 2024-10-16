@@ -7,7 +7,8 @@ function Orb() {
         // Randomly generate positions for each keyframe (between 0 and the width/height of the screen)
         const randomX = () => Math.floor(Math.random() * window.innerWidth) + "px";
         const randomY = () => Math.floor(Math.random() * window.innerHeight) + "px";
-    
+      
+        //code to control the movement of the orb.
         return keyframes`
           0% {
             transform: translate(${randomX()}, ${randomY()});

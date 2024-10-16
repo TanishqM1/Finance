@@ -9,6 +9,7 @@ function Navigation({active, setActive}) {
 
     
     return(
+        //styling for the user pfp as well as text beside it.
         <NavStyle>
             
         <div class="user-con">
@@ -19,7 +20,7 @@ function Navigation({active, setActive}) {
                 </h2>
             </div>
         </div>
-
+        {/* Dashboard items from "menuitems" with an onclick listener. Each item has a different id, which is kept in "setactive"*/}
         <ul className ="menu-items">
             {menuitems.map((item)=> {
                 return <li 
@@ -34,7 +35,7 @@ function Navigation({active, setActive}) {
                 </li>
             })}
         </ul>
-
+            {/* styling for bottom of the dashboard bar*/}
         <div class="bottom-nav">
           <li>
             {signout}  Sign Out
@@ -126,7 +127,7 @@ const NavStyle = styled.div`
     .active{
         color: #0ddeb8;
         i{
-            color: #0ddeb8;
+            color: white !important;
         }
         &::before{
             content: "";
