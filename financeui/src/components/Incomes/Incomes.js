@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { InnerLayout } from "../../styles/layout";
 import { UseGlobalContext } from "../../context/globalcontext";
+import Form from '../Form/Form'
 
 function Incomes() {
     const {addIncome} = UseGlobalContext()
@@ -12,6 +13,7 @@ function Incomes() {
                 
                 <div class="income-content">
                     <div class="form-contrainer">
+                        <Form/>
                     </div>
                     <div class="incomes">
                         
