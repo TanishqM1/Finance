@@ -84,7 +84,7 @@ function Form(){
     )
 }
 
-const FormStyled = styled.Form`
+const FormStyled = styled.form`
 
 
 
