@@ -75,6 +75,21 @@ function Form(){
                     <option value="other">Other</option>  
                 </select>
             </div>
+
+            <div className="input-control">
+                <textarea
+                value = {description}
+                type="text" 
+                name = {'description'}
+                id={'description'}
+                placeholder = "Enter Description: "
+                onChange={handleInput('description')}
+                cols='30'
+                rows='4'
+                ></textarea> 
+            </div>
+
+            
             <div class="submit-btn">
                 <button>Add Income</button>
             </div>
