@@ -101,6 +101,56 @@ function Form(){
 
 const FormStyled = styled.form`
 
+display: flex;
+flex-direction: column;
+gap: 1.5rem;
+margin-top: 20px;
+
+// input is all of the entry fields, select is the Category control, and "textarea" refers to the description textbox.
+input, select, textarea{
+    font-family: inherit;
+    font-size: inherit;
+    outline: none;
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: 5px;
+    // border color for text boxes
+    border: 2px solid #c2c0c0;
+    background: transparent;
+    resize: none;
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+    // Color for 'Category'
+    color: #0ddeb8;
+
+    &::placeholder{
+        //color for the placeholder text
+        color: #0ddeb8;
+    }
+
+}
+.input-control{
+    input{
+        width: 100%;
+    }
+
+}
+.selects{
+    display: flex;
+    justify-content: flex-start;
+    select{
+        //color when nothing is slected (start)
+        color: grey;
+        //color after first item has been selected
+        &:active, &:focus{
+        color: #0ddeb8;
+    }
+}
+}
+
+//** start next code here.
+.submit-btn{
+
+}
 
 
 `;
