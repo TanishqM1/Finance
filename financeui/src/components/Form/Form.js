@@ -150,6 +150,12 @@ input, select, textarea{
 //** start next code here.
 .submit-btn{
 
+    button{
+        box-shadow: 0px 1px 15px rgba(0,0,0, 0.0.6) ;
+        &:hover{
+            background: red !important;
+        }
+    }
 }
 
 
