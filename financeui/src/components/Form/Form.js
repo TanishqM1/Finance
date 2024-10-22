@@ -3,6 +3,8 @@ import styled from "styled-components";
 import 'react-datepicker/dist/react-datepicker.css';
 import DatePicker from 'react-datepicker';
 import { UseGlobalContext } from "../../context/globalcontext";
+import Button from "../Button/Button";
+import { addicon } from "../../utils/icons";
 
 function Form(){
     console.log('Form component is rendering');
@@ -91,7 +93,15 @@ function Form(){
 
             
             <div class="submit-btn">
-                <button>Add Income</button>
+                <Button
+                name={'Add Income'}
+                icon={addicon}
+                bPad={'.8rem 1.6rem'}
+                bRadius={'30px'}
+                color={'#0ddeb8'}
+                bg={'var(--color-accent'}
+
+                />
             </div>
 
 
@@ -121,11 +131,14 @@ input, select, textarea{
     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
     // Color for 'Category'
     color: #0ddeb8;
+    font-weight: bold;
 
     &::placeholder{
         //color for the placeholder text
         color: #0ddeb8;
+        font-weight: bold;
     }
+    
 
 }
 .input-control{
@@ -139,7 +152,7 @@ input, select, textarea{
     justify-content: flex-start;
     select{
         //color when nothing is slected (start)
-        color: grey;
+        color: #0ddeb8;
         //color after first item has been selected
         &:active, &:focus{
         color: #0ddeb8;
@@ -147,13 +160,17 @@ input, select, textarea{
 }
 }
 
-//** start next code here.
+
 .submit-btn{
 
     button{
         box-shadow: 0px 1px 15px rgba(0,0,0, 0.0.6) ;
+        font-weight: bold;
         &:hover{
-            background: red !important;
+            background: #0ddeb8 !important;
+            color: black !important;
+            font-size: larger !important;
+            border-radius: 30px !important;
         }
     }
 }
