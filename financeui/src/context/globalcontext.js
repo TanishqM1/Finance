@@ -11,6 +11,7 @@ export const GlobalProvider = ({children}) =>{
     const [expenses, setExpenses] = useState([])
     const [error, setError] = useState(null)
     
+    //This method passes the income data "income" onto axios, which creates a mongooseschema and uploads the data to the database.
     const addIncome = async (income) => {
         const response = await axios.post(`${BASEURL}add-income`, income)
             .catch((err) =>{
@@ -21,6 +22,7 @@ export const GlobalProvider = ({children}) =>{
 
     return (
         <GlobalContext.Provider value={{
+            // This is called when onClick() of the "add-income" button. 
             addIncome
         }} >
             {children}
