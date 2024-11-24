@@ -134,8 +134,7 @@ input, select, textarea{
     font-weight: bold;
 
     &::placeholder{
-        //color for the placeholder text
-        color: #0ddeb8;
+        color: #1b9680;
         font-weight: bold;
     }
     
@@ -152,7 +151,7 @@ input, select, textarea{
     justify-content: flex-start;
     select{
         //color when nothing is slected (start)
-        color: #0ddeb8;
+        color: #1b9680;
         //color after first item has been selected
         &:active, &:focus{
         color: #0ddeb8;
