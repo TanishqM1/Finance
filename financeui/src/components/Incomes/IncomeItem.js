@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { calender, comment, dollar, garbage } from "../../utils/icons";
+import { bank, calender, comment, dollar, freelance, garbage, other, salary, socialincome, stocks } from "../../utils/icons";
 import Button from "../Button/Button";
 
 // IncomeItem is created for each item in "income", after we use "getIncomes"
@@ -15,13 +15,33 @@ function IncomeItem({
     indicatorcolor,
     type
 }) {
+
+    // this switch case handles the category icon for our incomeitem
+    const categoryIcon = () =>{
+        switch(category){
+           
+            case "Salary":
+                return salary;
+            case "Freelancing":
+                return freelance;
+            case "Investments":
+                return stocks;
+            case "Social":
+                return socialincome;
+            case "Bank":
+                return bank;
+            case "Other":
+                return other;
+        }
+    }
+
     return (
         <IncomeItemStyled indicator={indicatorcolor}>
             <div class="icon">
 
             </div>
             <div class="content">
-                <h5>{[title,category]}</h5>
+                <h5>{[title]}</h5>
                 <div class="inner-content">
                     <div class="text">
                         <p>{dollar} 45</p>
