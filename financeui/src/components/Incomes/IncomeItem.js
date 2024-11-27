@@ -47,7 +47,17 @@ function IncomeItem({
 }
 
 const IncomeItemStyled = styled.div`
-
+    background: #28282A;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+    border-radius: 20px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    color: red;
 `;
 
 export default IncomeItem
