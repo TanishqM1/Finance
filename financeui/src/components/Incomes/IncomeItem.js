@@ -16,7 +16,7 @@ function IncomeItem({
     type
 }) {
     return (
-        <IncomeItemStyled>
+        <IncomeItemStyled indicator={indicatorcolor}>
             <div class="icon">
 
             </div>
@@ -58,6 +58,64 @@ const IncomeItemStyled = styled.div`
     gap: 1rem;
     width: 100%;
     color: #0ddeb8;
+
+    .icon{
+        width: 80px;
+        height: 80px;
+        border-radius: 20px;
+        background: #F5F5F5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #FFFFFF;
+        i{
+            font-size: 2.6rem;
+        }
+    }
+
+    .content{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: .2rem;
+        h5{
+            font-size: 1.3rem;
+            padding-left: 2rem;
+            position: relative;
+            &::before{
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: .8rem;
+                height: .8rem;
+                border-radius: 50%;
+                background: ${props => props.indicator};
+            }   
+        }
+
+        .inner-content{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .text{
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+                p{
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    color: var(--primary-color);
+                    opacity: 0.8;
+                }
+            }
+        }
+
+
+}
+
 `;
 
 export default IncomeItem
