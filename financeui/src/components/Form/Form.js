@@ -8,7 +8,7 @@ import { addicon } from "../../utils/icons";
 
 function Form(){
     console.log('Form component is rendering');
-    const {addIncome} = UseGlobalContext()
+    const {addIncome, getIncome} = UseGlobalContext()
     const [inputState, setInputState] = useState({
          title: '',
          amount: '',
@@ -26,6 +26,7 @@ function Form(){
     const handleSubmit = e =>{
         e.preventDefault()
         addIncome(inputState)
+        getIncome()
     }
 
     return (
@@ -69,12 +70,12 @@ function Form(){
             <div className="selects input-control">
                 <select required value={category} name="category" id="category" onChange={handleInput('category')}>
                     <option value=""  disabled >Select Category</option>
-                    <option value="Salary">Salary</option>
-                    <option value="Freelancing">Freelancing</option>
-                    <option value="Investments">Investments</option>
-                    <option value="Social">Social Benefits</option>
-                    <option value="Bank">Bank Transfer</option>   
-                    <option value="Other">Other</option>  
+                    <option value="salary">Salary</option>
+                    <option value="freelancing">Freelancing</option>
+                    <option value="investments">Investments</option>
+                    <option value="social">Social Benefits</option>
+                    <option value="bank">Bank Transfer</option>   
+                    <option value="other">Other</option>  
                 </select>
             </div>
 

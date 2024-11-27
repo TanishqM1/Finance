@@ -11,7 +11,7 @@ function Incomes() {
     // Runs on initial render
     useEffect(()=> {
         getIncome();
-    }, [])
+    }, [incomes])
 
     return (
         <IncomesStyled>

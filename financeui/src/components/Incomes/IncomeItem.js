@@ -15,30 +15,34 @@ function IncomeItem({
     indicatorcolor,
     type
 }) {
-
-    // this switch case handles the category icon for our incomeitem
-    const categoryIcon = () =>{
+    const IncomeCategoryIcon = () =>{
         switch(category){
-           
-            case "Salary":
+            case "salary":
                 return salary;
-            case "Freelancing":
+            case "freelancing":
                 return freelance;
-            case "Investments":
+            case "investments":
                 return stocks;
-            case "Social":
+            case "social":
                 return socialincome;
-            case "Bank":
+            case "bank":
                 return bank;
-            case "Other":
+            case "other":
                 return other;
         }
     }
 
+    //Expense category 
+    const ExpenseCategoryIcon = () =>{
+
+    }  
+
+    console.log('category:', category)
+
     return (
         <IncomeItemStyled indicator={indicatorcolor}>
             <div class="icon">
-
+            {type === "expense" ? ExpenseCategoryIcon() : IncomeCategoryIcon()}
             </div>
             <div class="content">
                 <h5>{[title]}</h5>
@@ -80,6 +84,7 @@ const IncomeItemStyled = styled.div`
     color: #0ddeb8;
 
     .icon{
+        color: black;
         width: 80px;
         height: 80px;
         border-radius: 20px;
