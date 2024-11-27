@@ -37,7 +37,7 @@ function Form(){
                 type="text" 
                 value = {title}
                 name = {'title'}
-                placeholder ="Title:"
+                placeholder ="Title"
                 onChange={handleInput('title')}
                 />
             </div>
@@ -48,7 +48,7 @@ function Form(){
                 type="text" 
                 name = {'amount'}
                 id={'amount'}
-                placeholder ="Amount:"
+                placeholder ="Amount"
                 onChange={handleInput('amount')}
                 />
             </div>
@@ -56,7 +56,7 @@ function Form(){
             <div className ="input-control">
                 <DatePicker
                 id = 'date'
-                placeholderText ='Enter Date:'
+                placeholderText ='Date'
                 selected={date}
                 dateFormat="dd/MM/yyyy"
                 onChange={(date)=>{
@@ -84,7 +84,7 @@ function Form(){
                 type="text" 
                 name = {'description'}
                 id={'description'}
-                placeholder = "Enter Description: "
+                placeholder = "Description "
                 onChange={handleInput('description')}
                 cols='30'
                 rows='4'
@@ -137,15 +137,20 @@ input, select, textarea{
         color: #1b9680;
         font-weight: bold;
     }
-    
-
 }
 .input-control{
     input{
         width: 100%;
+
     }
 
 }
+input:focus::placeholder,
+textarea:focus::placeholder {
+    color: transparent;
+}
+
+
 .selects{
     display: flex;
     justify-content: flex-start;
