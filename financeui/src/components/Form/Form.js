@@ -69,12 +69,12 @@ function Form(){
             <div className="selects input-control">
                 <select required value={category} name="category" id="category" onChange={handleInput('category')}>
                     <option value=""  disabled >Select Category</option>
-                    <option value="salary">Salary</option>
-                    <option value="freelancing">Freelancing</option>
-                    <option value="investments">Investments</option>
+                    <option value="Salary">Salary</option>
+                    <option value="Freelancing">Freelancing</option>
+                    <option value="Investments">Investments</option>
                     <option value="Social">Social Benefits</option>
-                    <option value="bank">Bank Transfer</option>   
-                    <option value="other">Other</option>  
+                    <option value="Bank">Bank Transfer</option>   
+                    <option value="Other">Other</option>  
                 </select>
             </div>
 
@@ -163,7 +163,7 @@ textarea:focus::placeholder {
     color: transparent;
 }
 
-
+/* selects is styling for our dropdown menu */
 .selects{
     display: flex;
     justify-content: flex-end;
@@ -173,9 +173,11 @@ textarea:focus::placeholder {
         //color after first item has been selected
         &:active, &:focus{
         color: #0ddeb8;
+        background-color: #28282A;
     }
 }
 }
+
 
 
 .submit-btn{
