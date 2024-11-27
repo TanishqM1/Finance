@@ -48,7 +48,17 @@ function Incomes() {
 
 const IncomesStyled = styled.div`
 
+display: flex;
+overflow: auto;
+    .income-content{
+        display: flex;
+        gap: 8rem;
+        align-items: start ;
+        .incomes{
+            flex: 1;
 
+        }
+    }
 `
 
 export default Incomes

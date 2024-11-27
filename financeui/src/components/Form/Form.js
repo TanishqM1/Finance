@@ -115,9 +115,16 @@ display: flex;
 flex-direction: column;
 gap: 1.5rem;
 margin-top: 20px;
+width: 120%;
 
 // input is all of the entry fields, select is the Category control, and "textarea" refers to the description textbox.
+.input-control .react-datepicker-wrapper {
+    width: 100%; /* Match the width of other input fields */
+    display: block; /* Ensure it behaves like other inputs */
+}
+
 input, select, textarea{
+    
     font-family: inherit;
     font-size: inherit;
     outline: none;
@@ -137,6 +144,8 @@ input, select, textarea{
         color: #1b9680;
         font-weight: bold;
     }
+
+
 }
 .input-control{
     input{
@@ -153,7 +162,7 @@ textarea:focus::placeholder {
 
 .selects{
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     select{
         //color when nothing is slected (start)
         color: #1b9680;
