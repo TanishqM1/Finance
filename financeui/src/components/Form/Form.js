@@ -123,6 +123,10 @@ width: 120%;
     display: block; /* Ensure it behaves like other inputs */
 }
 
+.input-control textarea{
+    width: 100%;
+}
+
 input, select, textarea{
     
     font-family: inherit;
