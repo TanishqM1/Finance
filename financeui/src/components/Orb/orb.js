@@ -50,8 +50,8 @@ function Orb() {
     border: 2px solid #000;
     margin-top: -45vh;
     margin-left: -45vh;
-    background: linear-gradient(90deg, rgba(73, 72, 72, 0.8) 0%, black 100%);
-    filter: blur(40px);
+    background: linear-gradient(90deg, rgba(73, 72, 72, 0.8) 0%, #333131 100%);
+    filter: blur(50px);
     animation: ${moveOrb} 10s alternate linear infinite;
   `;
 
