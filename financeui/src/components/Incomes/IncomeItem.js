@@ -57,7 +57,7 @@ const IncomeItemStyled = styled.div`
     align-items: center;
     gap: 1rem;
     width: 100%;
-    color: red;
+    color: #0ddeb8;
 `;
 
 export default IncomeItem
