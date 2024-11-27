@@ -7,6 +7,7 @@ const GlobalContext = React.createContext()
 
 export const GlobalProvider = ({children}) =>{
 
+    // "incomes" will hold all our incomes we need to display, "setIncomes" will update the "incomes" state, based on our "getIncome" GET request.
     const [incomes, setIncomes] = useState([])
     const [expenses, setExpenses] = useState([])
     const [error, setError] = useState(null)
@@ -18,12 +19,23 @@ export const GlobalProvider = ({children}) =>{
                 setError(err.response.data.message)
             })
     }
+    
+    // Function is working, testing with console.log(response.data)
+    const getIncome = async () => {
+        const response = await axios.get(`${BASEURL}get-income`)
+        .catch((err) =>{
+            setError(err.response.data.message)
+        })
+        setIncomes(response.data)
+    }
 
 
     return (
         <GlobalContext.Provider value={{
             // This is called when onClick() of the "add-income" button. 
-            addIncome
+            addIncome,
+            getIncome,
+            incomes 
         }} >
             {children}
         </GlobalContext.Provider>
