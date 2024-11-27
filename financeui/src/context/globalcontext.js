@@ -20,7 +20,7 @@ export const GlobalProvider = ({children}) =>{
             })
     }
     
-    // Function is working, testing with console.log(response.data)
+    // this function is used to pull our live data from mongodb, and is used upon adding, removing, and refreshing
     const getIncome = async () => {
         const response = await axios.get(`${BASEURL}get-income`)
         .catch((err) =>{
@@ -29,13 +29,18 @@ export const GlobalProvider = ({children}) =>{
         setIncomes(response.data)
     }
 
+    const deleteIncome = async (id) =>{
+        const res = await axios.delete(`${BASEURL}delete-income/${id}`)
+    }
+
 
     return (
         <GlobalContext.Provider value={{
             // This is called when onClick() of the "add-income" button. 
             addIncome,
             getIncome,
-            incomes 
+            incomes,
+            deleteIncome 
         }} >
             {children}
         </GlobalContext.Provider>
