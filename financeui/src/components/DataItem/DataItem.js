@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { bank, calender, clothing, comment, dine, dollar, donate, entertain, freelance, garbage, grocery, insurance, med, other, personal, rental, salary, save, socialincome, stocks, util } from "../../utils/icons";
 import Button from "../Button/Button";
 
-// IncomeItem is created for each item in "income", after we use "getIncomes"
+// IncomeItem is created for each item in "income", after we use "getIncomes". 
 function DataItem({
     id,
     title,
@@ -15,6 +15,7 @@ function DataItem({
     indicatorcolor,
     type
 }) {
+    //method is run if type==income, to pick icon
     const IncomeCategoryIcon = () =>{
         switch(category){
             case "salary":
@@ -32,7 +33,7 @@ function DataItem({
         }
     }
     
-    //Expense category 
+    //method is run if type==expense, to pick icon
     const ExpenseCategoryIcon = () =>{
         switch (category){
             case "rent":
@@ -62,8 +63,6 @@ function DataItem({
         }
     }  
 
-    console.log('category:', category)
-    console.log('type', type)
 
     return (
         <IncomeItemStyled indicator={indicatorcolor}>
