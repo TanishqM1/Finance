@@ -57,6 +57,7 @@ export const GlobalProvider = ({children}) =>{
             getIncome,
             incomes,
             deleteIncome,
+            TotalSalary
           }}
         >
           {console.log('GlobalProvider Values:', { addIncome, getIncome, incomes, deleteIncome })}
