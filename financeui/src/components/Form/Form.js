@@ -7,7 +7,6 @@ import Button from "../Button/Button";
 import { addicon } from "../../utils/icons";
 
 function Form(){
-    console.log('Form component is rendering');
     const {addIncome, getIncome} = UseGlobalContext()
     const [inputState, setInputState] = useState({
          title: '',

@@ -7,7 +7,7 @@ import React, { useMemo, useState } from 'react'
 import Dashboard from "./components/Dashboard/Dashboard";
 import Incomes from "./components/Incomes/Incomes";
 import Expenses from "./components/Expenses/Expenses";
-import { UseGlobalContext } from "./context/globalcontext";
+import { UseGlobalContext, GlobalProvider } from "./context/globalcontext";
 
 
 function App() {
