@@ -1,5 +1,6 @@
 import React, { children, useContext, useState } from "react"
 import axios from 'axios'
+import { createGlobalStyle } from "styled-components"
 
 const BASEURL = "http://localhost:5000/api/v1/"
 
@@ -18,9 +19,10 @@ export const GlobalProvider = ({children}) =>{
             .catch((err) =>{
                 setError(err.response.data.message)
             })
+            getIncome()
     }
     
-    // this function is used to pull our live data from mongodb, and is used upon adding, removing, and refreshing
+    // this function is used to pull our live data from mongodb, and is used upon adding, removing, and refreshings
     const getIncome = async () => {
         const response = await axios.get(`${BASEURL}get-income`)
         .catch((err) =>{
@@ -29,22 +31,39 @@ export const GlobalProvider = ({children}) =>{
         setIncomes(response.data)
     }
 
+    //this function is used to "delete" incomes from our income page.
     const deleteIncome = async (id) =>{
         const res = await axios.delete(`${BASEURL}delete-income/${id}`)
+        getIncome()
     }
+
+    //this function is used to calculate/update our total income(s) on our income page when an income is added/deleted. 
+    const TotalSalary = () => {
+        let total = 0;
+        incomes.forEach((income) => {
+            total += income.amount 
+        });
+        return total
+    };
+
+    console.log(TotalSalary());
+    
 
 
     return (
-        <GlobalContext.Provider value={{
-            // This is called when onClick() of the "add-income" button. 
+        <GlobalContext.Provider
+          value={{
             addIncome,
             getIncome,
             incomes,
-            deleteIncome 
-        }} >
-            {children}
+            deleteIncome,
+          }}
+        >
+          {console.log('GlobalProvider Values:', { addIncome, getIncome, incomes, deleteIncome })}
+          {children}
         </GlobalContext.Provider>
-    )
+      );
+      
 }
 
 export const UseGlobalContext=() =>{
