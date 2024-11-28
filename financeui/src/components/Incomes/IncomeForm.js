@@ -6,7 +6,7 @@ import { UseGlobalContext } from "../../context/globalcontext";
 import Button from "../Button/Button";
 import { addicon } from "../../utils/icons";
 
-function Form(){
+function IncomeForm(){
     const {addIncome, getIncome} = UseGlobalContext()
     const [inputState, setInputState] = useState({
          title: '',
@@ -203,6 +203,6 @@ textarea:focus::placeholder {
 
 `;
 
-export default Form
+export default IncomeForm
 
 //name

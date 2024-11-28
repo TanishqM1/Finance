@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { InnerLayout } from "../../styles/layout";
 import { UseGlobalContext } from "../../context/globalcontext";
-import Form from '../Form/form'
+import Form from '../Incomes/IncomeForm'
 import IncomeItem from "../DataItem/DataItem";
 
 function Expenses() {
