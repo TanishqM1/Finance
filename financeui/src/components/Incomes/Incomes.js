@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { InnerLayout } from "../../styles/layout";
 import { UseGlobalContext } from "../../context/globalcontext";
 import Form from '../Form/form'
-import IncomeItem from "./IncomeItem";
+import IncomeItem from "../DataItem/DataItem";
 
 function Incomes() {
     const {addIncome, incomes, getIncome, deleteIncome, TotalSalary} = UseGlobalContext()
