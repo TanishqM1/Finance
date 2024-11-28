@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { bank, calender, comment, dollar, freelance, garbage, other, salary, socialincome, stocks } from "../../utils/icons";
+import { bank, calender, clothing, comment, dine, dollar, donate, entertain, freelance, garbage, grocery, insurance, med, other, personal, rental, salary, save, socialincome, stocks, util } from "../../utils/icons";
 import Button from "../Button/Button";
 
 // IncomeItem is created for each item in "income", after we use "getIncomes"
@@ -31,13 +31,39 @@ function DataItem({
                 return other;
         }
     }
-
+    
     //Expense category 
     const ExpenseCategoryIcon = () =>{
-
+        switch (category){
+            case "rent":
+                return rental;
+            case "util":
+                return util;
+            case "grocery":
+                return grocery;
+            case "dining":
+                return dine;
+            case "insure":
+                return insurance;
+            case "aid":
+                return med;
+            case "save":
+                return save;
+            case "clothes":
+                return clothing;
+            case "personal":
+                return personal;
+            case "social":
+                return entertain;
+            case "donate":
+                return donate;
+            case "other":
+                return other;
+        }
     }  
 
     console.log('category:', category)
+    console.log('type', type)
 
     return (
         <IncomeItemStyled indicator={indicatorcolor}>
