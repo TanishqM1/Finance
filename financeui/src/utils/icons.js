@@ -11,7 +11,7 @@ export const addicon = <i class="fa-solid fa-plus"></i>
 // icons used in income.js form
 export const dollar = <i class="fa-solid fa-dollar-sign"></i>
 export const calender = <i class="fa-solid fa-calendar-days"></i>
-export const comment = <i class="fa-regular fa-comment"></i>
+export const comment = <i class="fa-solid fa-comment"></i>
 export const garbage = <i class="fa-solid fa-trash"></i>
 
 // icons used for displaying incomes category

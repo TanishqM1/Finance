@@ -129,7 +129,7 @@ width: 120%;
 
 input, select, textarea{
     
-    font-family: inherit;
+    font-family: cursive;
     font-size: inherit;
     outline: none;
     border: none;

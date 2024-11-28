@@ -62,6 +62,8 @@ overflow: auto;
     margin: -2rem 1rem 1rem 1rem;
     font-size: 2rem;
     gap: .5rem;
+    color: #1b9680;
+    font-family: cursive;
 }
     .income-content{
         display: flex;
