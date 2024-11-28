@@ -90,7 +90,7 @@ function IncomeForm(){
                 type="text" 
                 name = {'description'}
                 id={'description'}
-                placeholder = "Description "
+                placeholder = "Income Description "
                 onChange={handleInput('description')}
                 cols='30'
                 rows='4'

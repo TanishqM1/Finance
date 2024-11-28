@@ -87,6 +87,7 @@ export const GlobalProvider = ({children}) =>{
             deleteIncome,
             TotalSalary,
             addExpense,
+            expenses,
             getExpense,
             deleteExpense,
             TotalExpense

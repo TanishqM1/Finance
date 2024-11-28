@@ -2,29 +2,29 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { InnerLayout } from "../../styles/layout";
 import { UseGlobalContext } from "../../context/globalcontext";
-import Form from '../Incomes/IncomeForm'
-import IncomeItem from "../DataItem/DataItem";
+import Form from '../Expenses/ExpenseForm'
+import DataItem from "../DataItem/DataItem";
 
 function Expenses() {
-    const {addIncome, incomes, getIncome, deleteIncome, TotalSalary} = UseGlobalContext()
+    const {addIncome, expenses, getExpense, deleteExpense, TotalExpense} = UseGlobalContext()
 
     // Runs on initial render
     useEffect(()=> {
-        getIncome();
+        getExpense();
     }, [])
 
     return (
-        <IncomesStyled>
+        <ExpenseStyled>
             <InnerLayout>
-                <h2 class="total-income">Total Expense:  <span>${TotalSalary()}</span></h2>
+                <h2 class="total-income">Total Expense:  <span>${TotalExpense}</span></h2>
                 <div class="income-content">
                     <div class="form-contrainer">
                         <Form/>
                     </div>
                     <div class="incomes">
-                        {incomes.map((income) =>{
-                            const {_id, title, amount, date, category, description} = income;
-                            return <IncomeItem 
+                        {expenses.map((expense) =>{
+                            const {_id, title, amount, date, category, description} = expense;
+                            return <DataItem 
                             key={_id}
                             id = {_id}
                             title = {title}
@@ -33,7 +33,7 @@ function Expenses() {
                             description = {description}
                             category={category}
                             indicatorcolor={"var(--color-green)"}
-                            deleteitem = {deleteIncome}
+                            deleteitem = {deleteExpense}
                             />
 
                         })}
@@ -42,11 +42,11 @@ function Expenses() {
                 </div>
                 
             </InnerLayout>
-        </IncomesStyled>
+        </ExpenseStyled>
     )
 }
 
-const IncomesStyled = styled.div`
+const ExpenseStyled = styled.div`
 display: flex;
 overflow: auto;
 //total income banner at the top of "incomes" page.

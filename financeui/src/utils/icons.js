@@ -21,3 +21,5 @@ export const freelance = <i class="fa-solid fa-comments-dollar"></i> // freelanc
 export const salary = <i class="fa-solid fa-sack-dollar"></i> // salary income 
 export const bank = <i class="fa-solid fa-building-columns"></i> // bank income
 export const other = <i class="fa-solid fa-question"></i> // other income
+
+//icons used for displaying expenses category

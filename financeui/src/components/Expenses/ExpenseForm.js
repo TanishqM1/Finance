@@ -7,7 +7,7 @@ import Button from "../Button/Button";
 import { addicon } from "../../utils/icons";
 
 function ExpenseForm(){
-    const {addIncome, getIncome} = UseGlobalContext()
+    const {addExpense} = UseGlobalContext()
     const [inputState, setInputState] = useState({
          title: '',
          amount: '',
@@ -24,7 +24,7 @@ function ExpenseForm(){
 
     const handleSubmit = e =>{
         e.preventDefault()
-        addIncome(inputState)
+        addExpense(inputState)
         setInputState({
             title: '',
             amount: '',
@@ -75,11 +75,16 @@ function ExpenseForm(){
             <div className="selects input-control">
                 <select required value={category} name="category" id="category" onChange={handleInput('category')}>
                     <option value=""  disabled >Select Category</option>
-                    <option value="salary">Salary</option>
-                    <option value="freelancing">Freelancing</option>
-                    <option value="investments">Investments</option>
-                    <option value="social">Social Benefits</option>
-                    <option value="bank">Bank Transfer</option>   
+                    <option value="salary">Rent</option>
+                    <option value="freelancing">Utilities</option>
+                    <option value="investments">Groceries</option>
+                    <option value="investments">Dining Out</option>
+                    <option value="investments">Insurance</option>'
+                    <option value="investments">Savings</option>
+                    <option value="investments">Clothing</option>
+                    <option value="investments">Personal Care</option>
+                    <option value="social">Entertainment</option>
+                    <option value="bank">Charity</option>   
                     <option value="other">Other</option>  
                 </select>
             </div>
@@ -90,7 +95,7 @@ function ExpenseForm(){
                 type="text" 
                 name = {'description'}
                 id={'description'}
-                placeholder = "Description "
+                placeholder = "Expense Description "
                 onChange={handleInput('description')}
                 cols='30'
                 rows='4'
@@ -100,7 +105,7 @@ function ExpenseForm(){
             
             <div class="submit-btn">
                 <Button
-                name={'Add Income'}
+                name={'Add Expense'}
                 icon={addicon}
                 bPad={'.8rem 1.6rem'}
                 bRadius={'30px'}
