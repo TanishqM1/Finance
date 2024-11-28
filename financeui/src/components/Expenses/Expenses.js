@@ -16,19 +16,20 @@ function Expenses() {
     return (
         <ExpenseStyled>
             <InnerLayout>
-                <h2 class="total-income">Total Expense:  <span>${TotalExpense}</span></h2>
+                <h2 class="total-income">Total Expense:  <span>${TotalExpense()}</span></h2>
                 <div class="income-content">
                     <div class="form-contrainer">
                         <Form/>
                     </div>
                     <div class="incomes">
                         {expenses.map((expense) =>{
-                            const {_id, title, amount, date, category, description} = expense;
+                            const {_id, title, amount, date, category, description, type} = expense;
                             return <DataItem 
                             key={_id}
                             id = {_id}
                             title = {title}
                             amount = {amount}
+                            type = {'expense'}
                             date={date}
                             description = {description}
                             category={category}

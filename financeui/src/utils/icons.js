@@ -20,6 +20,20 @@ export const socialincome = <i class="fa-solid fa-user"></i> // social income
 export const freelance = <i class="fa-solid fa-comments-dollar"></i> // freelance income
 export const salary = <i class="fa-solid fa-sack-dollar"></i> // salary income 
 export const bank = <i class="fa-solid fa-building-columns"></i> // bank income
-export const other = <i class="fa-solid fa-question"></i> // other income
+
+export const other = <i class="fa-solid fa-question"></i> // other income/expense
+
+export const rental = <i class="fa-solid fa-house"></i>// rent expense
+export const util = <i class="fa-solid fa-lightbulb"></i>// utilities expense
+export const grocery = <i class="fa-solid fa-carrot"></i> // groceries expense
+export const dine = <i class="fa-solid fa-utensils"></i> // dining expense
+export const insurance = <i class="fa-solid fa-umbrella"></i>// insurance expense
+export const med = <i class="fa-solid fa-kit-medical"></i> // medical expense
+export const save = <i class="fa-solid fa-piggy-bank"></i> // savings expense
+export const clothing = <i class="fa-solid fa-shirt"></i> // clothing expense
+export const personal = <i class="fa-solid fa-sink"></i> // personal care expense
+export const entertain = <i class="fa-solid fa-tv"></i> // entertainment expense
+export const donate = <i class="fa-solid fa-hand-holding-dollar"></i> // charity expense
+
 
 //icons used for displaying expenses category
