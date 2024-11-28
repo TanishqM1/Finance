@@ -48,8 +48,8 @@ function IncomeItem({
                 <h5>{[title]}</h5>
                 <div class="inner-content">
                     <div class="text">
-                        <p>{dollar} 45</p>
-                        <p>{calender} {date}</p>
+                        <p>{dollar} {amount}</p>
+                        <p>{calender} {date.slice(0, 10)}</p>
                         <p>{comment} {description}</p>
                     </div>
                     <div class="btn-con">
