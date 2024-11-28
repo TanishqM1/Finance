@@ -16,7 +16,6 @@ function Incomes() {
     return (
         <IncomesStyled>
             <InnerLayout>
-                <h1>Incomes</h1>
                 <h2 class="total-income">Total Income:  <span>${TotalSalary()}</span></h2>
                 <div class="income-content">
                     <div class="form-contrainer">
@@ -60,7 +59,7 @@ overflow: auto;
     box-shadow: 0px 1px 15px rgba (0,0,0,0.06);
     border-radius: 20px;
     padding: 1rem;
-    margin: 1rem 0;
+    margin: -2rem 1rem 1rem 1rem;
     font-size: 2rem;
     gap: .5rem;
 }
