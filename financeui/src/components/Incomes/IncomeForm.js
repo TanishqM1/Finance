@@ -2,6 +2,7 @@ import {React, useState} from "react"
 import styled from "styled-components";
 import 'react-datepicker/dist/react-datepicker.css';
 import DatePicker from 'react-datepicker';
+// @ts-ignore
 import { UseGlobalContext } from "../../context/globalcontext";
 import Button from "../Button/Button";
 import { addicon } from "../../utils/icons";
