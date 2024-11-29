@@ -75,7 +75,21 @@ export const GlobalProvider = ({children}) =>{
         });
         return total
     }
+
+
+    //following methods are used in the dashboard.
+    const TotalBalance = () => {
+        return TotalSalary() - TotalExpense();
+    }
+
+    const TransactionHistory = () => {
+        const history = [...incomes, ...expenses];
+        history.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        return history;
+    };
     
+    
+
 
 
     return (
@@ -90,7 +104,9 @@ export const GlobalProvider = ({children}) =>{
             expenses,
             getExpense,
             deleteExpense,
-            TotalExpense
+            TotalExpense,
+            TotalBalance,
+            TransactionHistory
             
           }}
         >
