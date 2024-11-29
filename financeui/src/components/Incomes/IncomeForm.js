@@ -155,6 +155,9 @@ input, select, textarea{
         color: #1b9680;
         font-weight: bold;
     }
+    &:focus {
+        border-color: #1b9680;
+      }
 
 
 }
@@ -198,6 +201,7 @@ textarea:focus::placeholder {
             font-size: larger !important;
             border-radius: 30px !important;
         }
+        
     }
 }
 

@@ -1,26 +1,82 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Button from "../Button/Button"; // Adjust the path
-import { addicon } from "../../utils/icons";
-// Adjust the path
+import { addicon } from "../../utils/icons"; // Adjust the path
+import { Line } from 'react-chartjs-2'; // Import the Line chart component
+import { Chart as ChartJS, CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend } from 'chart.js';
+
+// Register the necessary chart.js components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  LineElement,
+  PointElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 function StockForm() {
-    
   const [stockCode, setStockCode] = useState("");
+  const [stockData, setStockData] = useState(null); // Store fetched stock data
+  const [error, setError] = useState(""); // Error state for any fetch issues
 
   const handleInput = (name) => (e) => {
     if (name === "stockCode") setStockCode(e.target.value);
   };
 
+  const fetchStockData = async (stockCode) => {
+    const apiKey = "BUDUrpZgHpnOOUsDI2GZG8vSUkda8pnW"; // Your API key
+    const url = `https://api.polygon.io/v2/aggs/ticker/${stockCode}/range/1/week/2023-01-09/2023-02-10?apiKey=${apiKey}`;
+
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error("Failed to fetch stock data");
+      }
+      const data = await response.json();
+      if (data.results) {
+        setStockData(data.results);
+        setError(""); // Clear error if data is fetched successfully
+        console.log("Fetched Stock Data:", data.results); // Log the stock data to the console
+      } else {
+        setError("No data available for the specified stock code.");
+      }
+    } catch (error) {
+      setError(error.message); // Handle errors during the fetch
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (stockCode.trim() !== "") {
-      console.log("Submitted Stock Code:", stockCode);
-      setStockCode(""); // Clear input field
+      fetchStockData(stockCode);
+      setStockCode(""); // Clear input field after submission
     } else {
       console.log("Please enter a stock code.");
     }
   };
+
+  // Prepare data for chart
+  const chartData = stockData ? {
+    labels: stockData.map(item => new Date(item.t).toLocaleDateString()), // Dates
+    datasets: [
+      {
+        label: "Open",
+        data: stockData.map(item => item.o), // Open prices
+        borderColor: "rgba(75,192,192,1)",
+        backgroundColor: "rgba(75,192,192,0.2)",
+        fill: false,
+      },
+      {
+        label: "Close",
+        data: stockData.map(item => item.c), // Close prices
+        borderColor: "rgba(153,102,255,1)",
+        backgroundColor: "rgba(153,102,255,0.2)",
+        fill: false,
+      },
+    ]
+  } : {};
 
   return (
     <StockFormStyled onSubmit={handleSubmit}>
@@ -29,7 +85,7 @@ function StockForm() {
           type="text"
           value={stockCode}
           name={"stockCode"}
-          placeholder="Enter stock code (e.g., MSFT)"
+          placeholder="Enter stock code (e.g., AAPL)"
           onChange={handleInput("stockCode")}
         />
       </div>
@@ -43,6 +99,17 @@ function StockForm() {
           bg={"var(--color-accent)"}
         />
       </div>
+
+      {/* Display Error Message */}
+      {error && <div className="error-message">{error}</div>}
+
+      {/* Render the Line Chart */}
+      {stockData && (
+        <div className="stock-chart">
+          <h3>Stock Price Graph for {stockCode.toUpperCase()}:</h3>
+          <Line data={chartData} />
+        </div>
+      )}
     </StockFormStyled>
   );
 }
@@ -73,8 +140,8 @@ const StockFormStyled = styled.form`
         color: #1b9680;
         font-weight: bold;
         display: flex;
-        justify-content: center; /* Centers the button horizontally */
-        align-items: center;    /* Centers the button vertically if needed */
+        justify-content: center;
+        align-items: center;
       }
 
       &:focus {
@@ -83,30 +150,44 @@ const StockFormStyled = styled.form`
 
       &:focus::placeholder {
         color: transparent;
-        
       }
     }
   }
 
   .submit-btn {
-  display: flex;
-  justify-content: center; /* Centers the button horizontally */
-  align-items: center;    /* Centers the button vertically if needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  button {
-    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-    font-weight: bold;
-    display: block;
+    button {
+      box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+      font-weight: bold;
+      display: block;
 
-    &:hover {
-      background: #0ddeb8 !important;
-      color: black !important;
-      font-size: larger !important;
-      border-radius: 30px !important;
+      &:hover {
+        background: #0ddeb8 !important;
+        color: black !important;
+        font-size: larger !important;
+        border-radius: 30px !important;
+      }
     }
   }
-}
 
+  .stock-chart {
+    margin-top: 20px;
+    width: 100%;
+    height: 400px;
+
+    canvas {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+
+  .error-message {
+    color: red;
+    font-weight: bold;
+  }
 `;
 
 export default StockForm;

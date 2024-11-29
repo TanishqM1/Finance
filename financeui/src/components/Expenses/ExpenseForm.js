@@ -161,6 +161,10 @@ input, select, textarea{
         font-weight: bold;
     }
 
+    &:focus {
+        border-color: #1b9680;
+      }
+
 
 }
 .input-control{
