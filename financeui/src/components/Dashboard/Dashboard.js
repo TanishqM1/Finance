@@ -10,7 +10,7 @@ function Dashboard() {
                 <h1>All Transactions</h1>
                 <div class="stats-con">
                     <div class="chart-con">
-                        <Chart />
+                        
                     </div>  
                 </div>
             </InnerLayout>
