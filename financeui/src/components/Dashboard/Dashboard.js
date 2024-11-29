@@ -60,9 +60,9 @@ h1{
         grid-template-columns: repeat(5, 1fr);
         gap: 2rem;
         .chart-con{
-            margin-left: 2rem;
-            margin-right: 2rem;
-            grid-column: 1 / 4;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            grid-column: 1 / 5;
             height: 400px;
             .amount-con{
                 display: grid;

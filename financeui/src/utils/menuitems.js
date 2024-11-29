@@ -1,16 +1,16 @@
-import {Taskbar, Transaction, Income, Expense} from '../utils/icons'
+import {Taskbar, Transaction, Income, Expense} from './icons'
 
 export const menuitems = [
 {
     id: 1,
-    title: 'Taskbar',
+    title: 'View Transactions',
     icon: Taskbar,
-    link: '/Taskbar'
+    link: '/Dashboard'
     },
 
     {
         id: 2,
-        title: 'View Transactions',
+        title: 'Stocks',
         icon: Transaction,
         link: "/Dashboard"
     },
