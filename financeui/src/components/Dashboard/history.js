@@ -16,7 +16,7 @@ function History() {
                 const textColor = type === 'income' ? '#17ED5B' : '#E22B2B';
                 
                 // Determine sign based on transaction type (positive for income, negative for expense)
-                const displayAmount = type === 'expense' ? `- ${amount}` : `+ ${amount}`;
+                const displayAmount = type === 'expense' ? ` $${amount}` : ` $${amount}`;
 
                 return (
                     <div key={_id} className="transactionitem">
