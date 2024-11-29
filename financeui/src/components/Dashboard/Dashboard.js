@@ -51,10 +51,14 @@ function Dashboard() {
 }
 
 const DashboardStyled = styled.div`
+p{
+    text-align: center;
+}
 h1{
     margin-bottom: 1rem;
 }
 h2{
+    text-align: center;
     color: #0ddeb8;
 }
     .stats-con{
@@ -106,7 +110,7 @@ h2{
         }
 
         .history-con{
-            grid-column: 4 / -1;
+            grid-column: 4 /-1;
             h2{
                 margin: 2rem 0;
                 display: flex;

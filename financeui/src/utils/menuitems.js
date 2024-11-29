@@ -3,7 +3,7 @@ import {Taskbar, Transaction, Income, Expense} from './icons'
 export const menuitems = [
 {
     id: 1,
-    title: 'View Transactions',
+    title: 'Home',
     icon: Taskbar,
     link: '/Dashboard'
     },
@@ -16,13 +16,13 @@ export const menuitems = [
     },
     {
         id: 3,
-        title: 'Incomes',
+        title: 'Income Page',
         icon: Income,
         link: '/Incomes'
     },
     {
         id: 4,
-        title: 'Expenses',
+        title: 'Expense Page',
         icon: Expense,
         link: '/Expenses'
     }
