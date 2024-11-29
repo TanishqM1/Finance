@@ -27,7 +27,7 @@ function StockForm() {
 
   const fetchStockData = async (stockCode) => {
     const apiKey = "BUDUrpZgHpnOOUsDI2GZG8vSUkda8pnW"; // Your API key
-    const url = `https://api.polygon.io/v2/aggs/ticker/${stockCode}/range/1/week/2023-01-09/2023-02-10?apiKey=${apiKey}`;
+    const url = `https://api.polygon.io/v2/aggs/ticker/${stockCode}/range/1/week/2023-01-09/2024-02-10?apiKey=${apiKey}`;
 
     try {
       const response = await fetch(url);
@@ -210,9 +210,9 @@ const StockFormStyled = styled.form`
   }
 
   .stock-chart {
-    margin-top: 20px;
     width: 100%;
-    height: 400px;
+    height: 100%;
+    
 
     canvas {
       width: 100% !important;
