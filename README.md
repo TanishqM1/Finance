@@ -1,4 +1,6 @@
-# Finance Budget App
+# Tanishq Mehta
+
+## Finance App
 
 A simple finance budgeting app that helps users manage their income, expenses, and visualize financial data through charts. The app integrates with a stock price API, allowing users to view stock prices and track their spending habits.
 
@@ -9,6 +11,7 @@ A simple finance budgeting app that helps users manage their income, expenses, a
 - **React.js**: Frontend framework for building the user interface and handling user interactions.
 - **Node.js**: JavaScript runtime for executing backend logic.
 - **Chart.js**: Used to visualize stock graphs & transactions
+- **Polygon.io** API to fetch stock data
 
 ## Features
 
@@ -29,3 +32,25 @@ This project was built with the intention of learning:
 - React.js basics for frontend development
 - CSS implementation for a responsive design
 - Working with NoSQL databases (MongoDB) for storing and managing data
+
+
+## Project Overview:
+
+- Initial Homepage that allows users to view all transactions, as well as their outstanding balance:
+
+![](imgs/Homepage.png)
+
+- Stock search feature that allows users to obtain real-time stock data based on local time.
+
+### Example 1
+![](imgs/Stock1.png)
+
+### Example 2
+![](imgs/Stock2.png)
+
+- Income page which allows users to add/delete positive transactions
+
+![](imgs/Income.png)
+
+- Expense page which allows users to add/delete negative transactions
+![](imgs/Expense.png)
