@@ -18,7 +18,6 @@ ChartJS.register(
 
 function StockForm() {
   const [stockCode, setStockCode] = useState("");
-  const [submittedStockCode, setSubmittedStockCode] = useState(null); // Store submitted stock code
   const [stockData, setStockData] = useState(null); // Store fetched stock data
   const [error, setError] = useState(""); // Error state for any fetch issues
 
@@ -26,9 +25,31 @@ function StockForm() {
     if (name === "stockCode") setStockCode(e.target.value);
   };
 
+  // Single method to format the date in YYYY-MM-DD format
+  const formatDate = (date) => {
+    return date.toISOString().split('T')[0]; // Get date part of the ISO string (YYYY-MM-DD)
+  };
+
+  // Get the current date minus 1 day and the current date minus 1 year and 1 day
+  const getDateRange = () => {
+    const currentDate = new Date();
+    const currentDateMinusOneDay = new Date(currentDate);
+    currentDateMinusOneDay.setDate(currentDate.getDate() - 1); // Subtract 1 day
+    
+    const currentDateMinusOneYearOneDay = new Date(currentDate);
+    currentDateMinusOneYearOneDay.setFullYear(currentDate.getFullYear() - 1); // Subtract 1 year
+    currentDateMinusOneYearOneDay.setDate(currentDateMinusOneYearOneDay.getDate() - 1); // Subtract 1 day
+    
+    return {
+      fromDate: formatDate(currentDateMinusOneYearOneDay),
+      toDate: formatDate(currentDateMinusOneDay),
+    };
+  };
+
   const fetchStockData = async (stockCode) => {
     const apiKey = "BUDUrpZgHpnOOUsDI2GZG8vSUkda8pnW"; // Your API key
-    const url = `https://api.polygon.io/v2/aggs/ticker/${stockCode}/range/1/week/2023-01-09/2024-02-10?apiKey=${apiKey}`;
+    const { fromDate, toDate } = getDateRange(); // Get the date range
+    const url = `https://api.polygon.io/v2/aggs/ticker/${stockCode}/range/1/week/${fromDate}/${toDate}?apiKey=${apiKey}`;
 
     try {
       const response = await fetch(url);
@@ -52,7 +73,6 @@ function StockForm() {
     e.preventDefault();
     if (stockCode.trim() !== "") {
       fetchStockData(stockCode);
-      setSubmittedStockCode(stockCode); // Store the submitted stock code
       setStockCode(""); // Clear input field after submission
     } else {
       console.log("Please enter a stock code.");
@@ -86,7 +106,7 @@ function StockForm() {
     plugins: {
       title: {
         display: true,
-        text: `Stock Price Graph for ${submittedStockCode ? submittedStockCode.toUpperCase() : 'Loading...'}`,
+        text: `Stock Price Graph for ${stockCode.toUpperCase()}`,
         color: '#0ddeb8', // Title color
         font: {
           size: 20,
@@ -140,7 +160,6 @@ function StockForm() {
 
       {/* Display Error Message */}
       {error && <div className="error-message">{error}</div>}
-
 
       {/* Render the Line Chart */}
       {stockData && (
@@ -222,12 +241,6 @@ const StockFormStyled = styled.form`
 
   .error-message {
     color: red;
-    font-weight: bold;
-  }
-
-  .submitted-stock {
-    margin-top: 10px;
-    color: #1b9680;
     font-weight: bold;
   }
 `;
