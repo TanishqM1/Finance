@@ -96,6 +96,16 @@ const ChartStyled = styled.div`
     padding: 1rem;
     border-radius: 20px;
     height: 100%;
+    width: 100%;
+    
+    /* Flexbox to center the canvas */
+    display: flex;
+    justify-content: center;  /* Horizontally center canvas */
+    align-items: center;      /* Vertically center canvas */
+    
+    /* Ensure canvas takes full available width and height */
 `;
+
+
 
 export default DisplayChart;
