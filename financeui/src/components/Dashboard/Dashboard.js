@@ -40,8 +40,8 @@ function Dashboard() {
                     </div>
                     <div class="history">
                     <History />
-                    <div class="salary-itm">
-                        
+                    <div class="salary-itm"> 
+                        {/* not implemented */}
                     </div>
                     </div>  
                 </div>
@@ -54,6 +54,9 @@ const DashboardStyled = styled.div`
 h1{
     margin-bottom: 1rem;
 }
+h2{
+    color: #0ddeb8;
+}
     .stats-con{
         font-family: cursive;
         display: grid;
@@ -61,7 +64,6 @@ h1{
         gap: 2rem;
         .chart-con{
             margin-left: 1rem;
-            margin-right: 1rem;
             grid-column: 1 / 5;
             height: 400px;
             .amount-con{
@@ -73,8 +75,9 @@ h1{
                     grid-column: span 2;
                 }
                 .income, .expense, .balance{
-                    background: #FCF6F9;
-                    border: 2px solid #FFFFFF;
+                    color: #1b9680;
+                    background: #28282A;
+                    border: 2px solid black;
                     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
                     border-radius: 20px;
                     padding: 1rem;
@@ -90,6 +93,9 @@ h1{
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
+                    margin-bottom: 2rem;
+                    border-color: black;
+                    background-color: #28282A;
                     p{
                         color: var(--color-green);
                         opacity: 0.6;
@@ -102,7 +108,7 @@ h1{
         .history-con{
             grid-column: 4 / -1;
             h2{
-                margin: 1rem 0;
+                margin: 2rem 0;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;

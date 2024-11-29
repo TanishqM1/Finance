@@ -13,10 +13,10 @@ function History() {
                 const { _id, title, amount, type } = item;
                 console.log(item.type);
                 // Determine color based on transaction type
-                const textColor = type === 'income' ? 'green' : 'red';
+                const textColor = type === 'income' ? '#17ED5B' : '#E22B2B';
                 
                 // Determine sign based on transaction type (positive for income, negative for expense)
-                const displayAmount = type === 'expense' ? `-${amount}` : `+${amount}`;
+                const displayAmount = type === 'expense' ? `- ${amount}` : `+ ${amount}`;
 
                 return (
                     <div key={_id} className="transactionitem">
@@ -32,17 +32,24 @@ function History() {
 const StyledHistory = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: .8rem;
 
     .transactionitem {
-        background: #FCF6F9;
-        border: 2px solid #FFFFFF;
-        box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-        padding: 1rem;
-        border-radius: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        font-size: medium;
+    background: #2C2C2C;
+    border: 2px solid black;
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+    padding: 1rem;
+    border-radius: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 200px; /* Adjust the minimum width to allow more space */
+    width: auto; /* Ensures the width adjusts based on content */
+    white-space: nowrap; /* Prevents text from wrapping to a new line */
+    overflow: hidden; /* Prevents overflow, if needed */
+    text-overflow: ellipsis; /* Adds ellipsis when text overflows */
+
     }
 `;
 
