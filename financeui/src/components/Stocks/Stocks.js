@@ -97,18 +97,18 @@ function StockForm() {
     scales: {
       x: {
         ticks: {
-          color: 'white', // X-axis tick color
+          color: 'white', // X-axis tick color (label color)
         },
         grid: {
-          color: 'white', // X-axis grid line color
+          color: 'rgba(0, 0, 0, 0.1)', // Keep default grid line color (light gray)
         },
       },
       y: {
         ticks: {
-          color: 'white', // Y-axis tick color
+          color: 'white', // Y-axis tick color (label color)
         },
         grid: {
-          color: 'white', // Y-axis grid line color
+          color: 'rgba(0, 0, 0, 0.1)', // Keep default grid line color (light gray)
         },
       },
     },
@@ -142,7 +142,7 @@ function StockForm() {
       {/* Render the Line Chart */}
       {stockData && (
         <div className="stock-chart">
-          <h3>Stock Price Graph for {stockCode.toUpperCase()}:</h3>
+          
           <Line data={chartData} options={chartOptions} />
         </div>
       )}
