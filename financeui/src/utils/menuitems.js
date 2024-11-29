@@ -12,7 +12,7 @@ export const menuitems = [
         id: 2,
         title: 'Stocks',
         icon: Transaction,
-        link: "/Dashboard"
+        link: "/Stocks"
     },
     {
         id: 3,

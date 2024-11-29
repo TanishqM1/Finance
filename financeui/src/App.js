@@ -7,6 +7,7 @@ import React, { useMemo, useState } from 'react'
 import Dashboard from "./components/Dashboard/Dashboard";
 import Incomes from "./components/Incomes/Incomes";
 import Expenses from "./components/Expenses/Expenses";
+import Stock from "./components/Stocks/Stocks";
 import { UseGlobalContext, GlobalProvider } from "./context/globalcontext";
 
 
@@ -24,7 +25,7 @@ function App() {
       case 1:
         return <Dashboard />
       case 2:
-        return <Dashboard />
+        return <Stock />
       case 3:
         return <Incomes />
       case 4: 
