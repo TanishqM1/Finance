@@ -82,11 +82,16 @@ export const GlobalProvider = ({children}) =>{
         return TotalSalary() - TotalExpense();
     }
 
+
     const TransactionHistory = () => {
-        const history = [...incomes, ...expenses];
+        const history = [
+            ...incomes.map(item => ({ ...item, type: 'income' })),
+            ...expenses.map(item => ({ ...item, type: 'expense' }))
+        ];
         history.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         return history;
     };
+    
     
     
 
