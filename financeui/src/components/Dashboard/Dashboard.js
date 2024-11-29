@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { InnerLayout } from "../../styles/layout";
-import { Chart } from "chart.js";
+import DisplayChart from "../Chart/chart";
 
 function Dashboard() {
     return (
@@ -10,7 +10,7 @@ function Dashboard() {
                 <h1>All Transactions</h1>
                 <div class="stats-con">
                     <div class="chart-con">
-                        
+                        <DisplayChart />
                     </div>  
                 </div>
             </InnerLayout>

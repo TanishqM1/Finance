@@ -2,16 +2,18 @@ import React from "react";
 import {Chart as ChartJs, CategoryScale,LinearScale,PointElement,LineElement,Title,Tooltip,Legend,ArcElement,} from 'chart.js'
 import {Line} from 'react-chartjs-2'
 import styled from 'styled-components'
-import { useGlobalContext } from '../../context/globalContext'
+import { UseGlobalContext } from "../../context/globalcontext";
 // chartjs functionality imports
+
+
 ChartJs.register(
     CategoryScale,LinearScale,PointElement,LineElement,Title,Tooltip,Legend,ArcElement
 )
 
 
-//chart to display data using chat.js
-function displayChart() {
-    const {incomes, expenses} = useGlobalContext()
+//chart to display data using chat.js.
+function DisplayChart() {
+    const {incomes, expenses} = UseGlobalContext();
 
     //map DataItems (income) and reformatted date
     const data = {
@@ -51,4 +53,4 @@ const Chartstyled = styled.div`
 
 `;
 
-export default displayChart
+export default DisplayChart
