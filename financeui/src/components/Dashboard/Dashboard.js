@@ -51,11 +51,17 @@ function Dashboard() {
 }
 
 const DashboardStyled = styled.div`
+h1{
+    margin-bottom: 1rem;
+}
     .stats-con{
+        font-family: cursive;
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         gap: 2rem;
         .chart-con{
+            margin-left: 2rem;
+            margin-right: 2rem;
             grid-column: 1 / 4;
             height: 400px;
             .amount-con{
