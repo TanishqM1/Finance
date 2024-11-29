@@ -18,6 +18,7 @@ ChartJS.register(
 
 function StockForm() {
   const [stockCode, setStockCode] = useState("");
+  const [submittedStockCode, setSubmittedStockCode] = useState(null); // Store submitted stock code
   const [stockData, setStockData] = useState(null); // Store fetched stock data
   const [error, setError] = useState(""); // Error state for any fetch issues
 
@@ -51,6 +52,7 @@ function StockForm() {
     e.preventDefault();
     if (stockCode.trim() !== "") {
       fetchStockData(stockCode);
+      setSubmittedStockCode(stockCode); // Store the submitted stock code
       setStockCode(""); // Clear input field after submission
     } else {
       console.log("Please enter a stock code.");
@@ -84,7 +86,7 @@ function StockForm() {
     plugins: {
       title: {
         display: true,
-        text: `Stock Price Graph for ${stockCode.toUpperCase()}`,
+        text: `Stock Price Graph for ${submittedStockCode ? submittedStockCode.toUpperCase() : 'Loading...'}`,
         color: '#0ddeb8', // Title color
         font: {
           size: 20,
@@ -127,7 +129,7 @@ function StockForm() {
       </div>
       <div className="submit-btn">
         <Button
-          name={"Submit Stock Code"}
+          name={"Search Stock Code"}
           icon={addicon}
           bPad={".8rem 1.6rem"}
           bRadius={"30px"}
@@ -139,10 +141,10 @@ function StockForm() {
       {/* Display Error Message */}
       {error && <div className="error-message">{error}</div>}
 
+
       {/* Render the Line Chart */}
       {stockData && (
         <div className="stock-chart">
-          
           <Line data={chartData} options={chartOptions} />
         </div>
       )}
@@ -212,8 +214,6 @@ const StockFormStyled = styled.form`
   .stock-chart {
     width: 100%;
     height: 100%;
-    
-
     canvas {
       width: 100% !important;
       height: 100% !important;
@@ -222,6 +222,12 @@ const StockFormStyled = styled.form`
 
   .error-message {
     color: red;
+    font-weight: bold;
+  }
+
+  .submitted-stock {
+    margin-top: 10px;
+    color: #1b9680;
     font-weight: bold;
   }
 `;
