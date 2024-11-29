@@ -1,61 +1,96 @@
 import React from "react";
-import {Chart as ChartJs, CategoryScale,LinearScale,PointElement,LineElement,Title,Tooltip,Legend,ArcElement,} from 'chart.js'
-import {Line} from 'react-chartjs-2'
-import styled from 'styled-components'
+import { Chart as ChartJs, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, ArcElement } from 'chart.js';
+import { Line } from 'react-chartjs-2';
+import styled from 'styled-components';
 import { UseGlobalContext } from "../../context/globalcontext";
-// chartjs functionality imports
 
-
+// Register chart.js components
 ChartJs.register(
-    CategoryScale,LinearScale,PointElement,LineElement,Title,Tooltip,Legend,ArcElement
-)
+    CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, ArcElement
+);
 
-
-//chart to display data using chat.js.
 function DisplayChart() {
-    const {incomes, expenses} = UseGlobalContext();
+    const { incomes, expenses } = UseGlobalContext();
 
-    //map DataItems (income) and reformatted date
+    // Prepare chart data with labels (dates) and income/expense values
     const data = {
-        labels: incomes.map((inc) =>{
-            const {date} = inc
-            return date.slice(0, 10)
+        labels: incomes.map((inc) => {
+            const { date } = inc;
+            return date.slice(0, 10); // Format date to YYYY-MM-DD
         }),
 
-        datasets: 
-        [
-            {label: 'Income',
-            data: [...incomes.map((income)=> {
-                    const {amount} = income
-                    return amount
-                })
-            ],
-            //styling for income part of graph. tension between .1 and .4 works best
-            backgroundColor: 'green',
-            tension:.2
+        datasets: [
+            {
+                label: 'Income',
+                data: incomes.map((income) => {
+                    const { amount } = income;
+                    return amount;
+                }),
+                borderColor: 'green', // Set border color for the income line
+                backgroundColor: 'rgba(0, 128, 0, 0.2)', // Set background color for income area
+                tension: 0.2, // Line smoothness
+                fill: true, // Fill under the line
             },
-            
-            {label: 'Expenses',
-                data: [...expenses.map((expense)=> {
-                        const {amount} = expense
-                        return amount
-                    })
-                ],
-                  //styling for expense part of graph.
-                backgroundColor: 'red',
-                tension: .2
-                }
+            {
+                label: 'Expenses',
+                data: expenses.map((expense) => {
+                    const { amount } = expense;
+                    return amount;
+                }),
+                borderColor: 'red', // Set border color for the expense line
+                backgroundColor: 'rgba(255, 0, 0, 0.2)', // Set background color for expense area
+                tension: 0.2, // Line smoothness
+                fill: true, // Fill under the line
+            }
         ]
-    }
+    };
+
+    // Customize chart options
+    const options = {
+        responsive: true,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Income vs Expenses',
+                color: '#0ddeb8', // Title color
+                font: {
+                    size: 20,
+                },
+            },
+            tooltip: {
+                backgroundColor: 'rgba(0, 0, 0, 0.8)', // Tooltip background color
+                bodyColor: 'white', // Tooltip text color
+            },
+        },
+        scales: {
+            x: {
+                ticks: {
+                    color: 'white', // X-axis label color
+                },
+                grid: {
+                    color: 'rgba(0, 0, 0, 0.1)', // Grid line color
+                },
+            },
+            y: {
+                ticks: {
+                    color: 'white', // Y-axis label color
+                },
+                grid: {
+                    color: 'rgba(0, 0, 0, 0.1)', // Grid line color
+                },
+            },
+        },
+    };
+
     return (
-        <Chartstyled>
-            <Line data={data} />
-        </Chartstyled>
-    )
+        <ChartStyled>
+            <Line data={data} options={options} />
+        </ChartStyled>
+    );
 }
 
-const Chartstyled = styled.div`
-    background: #FCF6F9;
+const ChartStyled = styled.div`
+    background: #28282A; /* Grey background for the chart */
     border: 2px solid #FFFFFF;
     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
     padding: 1rem;
@@ -63,4 +98,4 @@ const Chartstyled = styled.div`
     height: 100%;
 `;
 
-export default DisplayChart
+export default DisplayChart;

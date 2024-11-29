@@ -88,7 +88,7 @@ export const GlobalProvider = ({children}) =>{
             ...expenses.map(item => ({ ...item, type: 'expense' }))
         ];
         history.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-        return history.slice(0,4);
+        return history.slice(0,7);
     };
     
     
