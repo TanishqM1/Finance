@@ -23,6 +23,7 @@ export const bank = <i class="fa-solid fa-building-columns"></i> // bank income
 
 export const other = <i class="fa-solid fa-question"></i> // other income/expense
 
+//icons used for displaying expenses category
 export const rental = <i class="fa-solid fa-house"></i>// rent expense
 export const util = <i class="fa-solid fa-lightbulb"></i>// utilities expense
 export const grocery = <i class="fa-solid fa-carrot"></i> // groceries expense
@@ -36,4 +37,5 @@ export const entertain = <i class="fa-solid fa-tv"></i> // entertainment expense
 export const donate = <i class="fa-solid fa-hand-holding-dollar"></i> // charity expense
 
 
-//icons used for displaying expenses category
+
+
