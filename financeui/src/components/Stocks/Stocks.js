@@ -78,6 +78,42 @@ function StockForm() {
     ]
   } : {};
 
+  // Customize chart options
+  const chartOptions = {
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: `Stock Price Graph for ${stockCode.toUpperCase()}`,
+        color: '#0ddeb8', // Title color
+        font: {
+          size: 20,
+        },
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)', // Tooltip background color
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: 'white', // X-axis tick color
+        },
+        grid: {
+          color: 'white', // X-axis grid line color
+        },
+      },
+      y: {
+        ticks: {
+          color: 'white', // Y-axis tick color
+        },
+        grid: {
+          color: 'white', // Y-axis grid line color
+        },
+      },
+    },
+  };
+
   return (
     <StockFormStyled onSubmit={handleSubmit}>
       <div className="input-control">
@@ -107,7 +143,7 @@ function StockForm() {
       {stockData && (
         <div className="stock-chart">
           <h3>Stock Price Graph for {stockCode.toUpperCase()}:</h3>
-          <Line data={chartData} />
+          <Line data={chartData} options={chartOptions} />
         </div>
       )}
     </StockFormStyled>
