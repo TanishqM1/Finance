@@ -30,15 +30,20 @@ function DisplayChart() {
                     return amount
                 })
             ],
-            backgroundColor: 'green'
+            //styling for income part of graph. tension between .1 and .4 works best
+            backgroundColor: 'green',
+            tension:.2
             },
+            
             {label: 'Expenses',
                 data: [...expenses.map((expense)=> {
                         const {amount} = expense
                         return amount
                     })
                 ],
-                backgroundColor: 'red'
+                  //styling for expense part of graph.
+                backgroundColor: 'red',
+                tension: .2
                 }
         ]
     }
@@ -50,7 +55,12 @@ function DisplayChart() {
 }
 
 const Chartstyled = styled.div`
-
+    background: #FCF6F9;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+    padding: 1rem;
+    border-radius: 20px;
+    height: 100%;
 `;
 
 export default DisplayChart
