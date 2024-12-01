@@ -2,7 +2,7 @@
 
 ## Finance App
 
-A simple finance budgeting app that helps users manage their income, expenses, and visualize financial data through charts. The app integrates with a stock price API, allowing users to view stock prices and track their spending habits.
+A simple finance budgeting app that helps users manage their income, expenses, and visualize financial data through charts. The app uses the polygon.io stock price API, allowing users to view stock prices and track their spending habits.
 
 ## Tech Stack
 
